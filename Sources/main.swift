@@ -1,6 +1,7 @@
 import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
+import Foundation
 
 let names = ["accounts":[
     ["username":"cbcdiver", "email":"c@d.com", "password":"pencil99"],
@@ -20,7 +21,3 @@ do {
 } catch PerfectError.networkError(let err, let msg) {
     print("Network error thrown: \(err) \(msg)")
 }
-Import Foundation
-import PerfectLib
-import PerfectHTTP
-import PerfectHTTPServer
