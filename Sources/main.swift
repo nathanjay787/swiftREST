@@ -14,7 +14,7 @@ server.documentRoot = "webroot"
 
 var routes = Routes()
 
-RouteMaker.makeAllRoutes(routes: Routes)
+RouteMaker.makeAllRoutes(theRoutes: &routes)
 
 server.addRoutes(routes)
 
