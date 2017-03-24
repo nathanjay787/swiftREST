@@ -4,7 +4,7 @@ import PerfectHTTPServer
 import Foundation
 
 class RouteMaker {
-    let getDepot = Get()
+    let getDepot = Getting()
     static func makeAllRoutes(routes: inout Routes) {
         //routes.add(method: .get, uri: "/json/all", handler: Get().getAll)
     }
