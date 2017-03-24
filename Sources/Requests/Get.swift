@@ -3,7 +3,7 @@ import PerfectHTTP
 import PerfectHTTPServer
 import Foundation
 
-class Get {
+public class Get {
     class func getAll(request: HTTPRequest, _ response: HTTPResponse) {
         do {
             try response.setBody(json: names)
