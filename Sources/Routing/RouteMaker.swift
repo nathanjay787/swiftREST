@@ -2,3 +2,9 @@ import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
 import Foundation
+
+Class RouteMaker {
+    static func makeAllRoutes(routes: inout Routes) {
+        routes.add(method: .get, uri: "/json/all", handler: Get.getAll)   
+    }
+}
