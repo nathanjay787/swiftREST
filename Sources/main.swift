@@ -3,7 +3,7 @@ import PerfectHTTP
 import PerfectHTTPServer
 import Foundation
 
-let names = ["accounts":[
+var names = ["accounts":[
     ["username":"cbcdiver", "email":"c@d.com", "password":"pencil99"],
     ["username":"dogs", "email":"a@b.com", "password":"pencil99"]
 ]]

@@ -12,34 +12,22 @@ public class Get {
     //    ]
     //]
     class func getAll(request: HTTPRequest, _ response: HTTPResponse) {
-        do {
-            try response.setBody(json: names)
-                response.setHeader(.contentType, value: "application/json")
-                response.completed()
-        
-        } 
-        catch {
-            response.setBody(string: "Error handling request: \(error)")
-            response.completed()
-        }
+        ResponseMaker.resultCustom(response: response, theDictionary: names)
     }
 
     class func getUser(request: HTTPRequest, _ response: HTTPResponse) {
         if let targetUser = request.urlVariables["username"]{
+            var accountFound = false
             for i in 0..<names["accounts"]!.count {
                 if (targetUser == names["accounts"]![i]["username"]!) {
-                    var toReturn = ["accounts": names["accounts"]![i]]
-                    do {
-                        try response.setBody(json: toReturn)
-                        response.setHeader(.contentType, value: "application/json")
-                        response.completed()
-                    }
-                    catch {
-                        response.setBody(string: "Error handling request: \(error)")
-                        response.completed()
-                    }
+                    let toReturn = ["accounts": names["accounts"]![i]]
+                    ResponseMaker.resultCustom(response: response, theDictionary: toReturn)
+                    accountFound = true
                     break
                 }
+            }
+            if (!accountFound) {
+                ResponseMaker.resultCustom(response: response, theDictionary: ["result": "no account"])
             }
         }
     }
@@ -48,18 +36,11 @@ public class Get {
         if let targetUser = request.urlVariables["username"], let targetPassword = request.urlVariables["password"]{
             for i in 0..<names["accounts"]!.count {
                 if (targetUser == names["accounts"]![i]["username"]!) {
-                    var toReturn = ["result": "false"]
-                    if (targetPassword == names["accounts"]![i]["password"]!){
-                        toReturn = ["result": "true"]
+                    if (targetPassword == names["accounts"]![i]["password"]!) {
+                        ResponseMaker.resultTrue(response: response)
                     }
-                    do {
-                        try response.setBody(json: toReturn)
-                        response.setHeader(.contentType, value: "application/json")
-                        response.completed()
-                    }
-                    catch {
-                        response.setBody(string: "Error handling request: \(error)")
-                        response.completed()
+                    else {
+                        ResponseMaker.resultFalse(response: response)
                     }
                     break
                 }
