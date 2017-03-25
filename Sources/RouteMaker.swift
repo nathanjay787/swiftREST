@@ -9,5 +9,6 @@ class RouteMaker {
         theRoutes.add(method: .get, uri: "/json/username/{username}", handler: Get.getUser)
         theRoutes.add(method: .get, uri: "/json/login/{username}/{password}", handler: Get.getUserPassword)
         theRoutes.add(method: .post, uri: "json/add", handler: Post.addUser)
+        theRoutes.add(method: .put, uri: "json/{put_operation}", handler: Put.changeInfo)
     }
 }
