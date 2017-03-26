@@ -1,3 +1,9 @@
+/****************************************************************************
+Nathan Jasiukajc
+swift JSON API server
+2017-03-25
+****************************************************************************/
+
 import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer

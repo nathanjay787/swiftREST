@@ -1,9 +1,25 @@
+/****************************************************************************
+Nathan Jasiukajc
+swift JSON API server
+2017-03-25
+****************************************************************************/
+
 import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
 import Foundation
 
+/****************************************************************************
+RouteMaker.swift
+
+Class to add routes to the webserver
+****************************************************************************/
 class RouteMaker {
+    /************************************************************************
+     makeAllRoutes
+     
+     Adds all routes
+    ************************************************************************/
     class func makeAllRoutes(theRoutes : inout Routes) {
         theRoutes.add(method: .get, uri: "/json/all", handler: Get.getAll)
         theRoutes.add(method: .get, uri: "/json/username/{username}", handler: Get.getUser)
