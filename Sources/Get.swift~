@@ -71,7 +71,6 @@ public class Get {
                     break
                 }
             }
-	    ResponseMaker.resultFalse(response: response)
         }
          else {
             ResponseMaker.resultBad(response: response)

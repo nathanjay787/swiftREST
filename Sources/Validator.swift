@@ -28,7 +28,7 @@ class Validator {
     ************************************************************************/
     class func testRegexMatch(regexFor: String, text: String) -> Bool {
         do {
-            let regex = try RegularExpression(pattern: regexRepository[regexFor]!, options: [])
+            let regex = try NSRegularExpression(pattern: regexRepository[regexFor]!, options: [])
             let nsString = NSString(string: text)
             let results = regex.matches(in: text, options: [], range: NSRange(location: 0, length: nsString.length))
             return results.count > 0
